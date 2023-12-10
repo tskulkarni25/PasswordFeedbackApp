@@ -1,0 +1,54 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", id: 'user_password' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div id="password-strength-meter">
+    <div id="strength"></div>
+    <div id="warning"></div>
+    <div id="suggestion"></div>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<!-- jQuery and the password strength library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+
+<!-- jQuery script for real-time feedback -->
+<script>
+  $(document).ready(function() {
+    $('#user_password').on('input', function() {
+      var password = $(this).val();
+      var result = zxcvbn(password);
+      console.log(result);
+      $('#password-strength-meter #strength').html('<p><b>Password Strength:</b> ' + result.score + '/4</p>');
+      $('#password-strength-meter #warning').html("<p><b>Warning:</b> \r" + result.feedback.warning + "</p>");
+      $('#password-strength-meter #suggestion').html("<p><b>Suggestion:</b><li> " + result.feedback.suggestions.join("</li><li>"));
+    });
+  });
+</script>
+
+
+<%= render "devise/shared/links" %>
