@@ -1,24 +1,9 @@
-# README
+# Real-time Password Feedback App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Link - http://localhost:3000/users/sign_up
 
-Things you may want to cover:
+* Real-time password feedback screenshots:
 
-* Ruby version
+* <img width="570" alt="Screenshot 2023-12-10 at 6 16 20 PM" src="https://github.com/tskulkarni25/PasswordFeedbackApp/assets/16187077/dde872d3-4565-43bc-86f6-a7c5511bf9ba">
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* <img width="570" alt="Screenshot 2023-12-10 at 6 15 58 PM" src="https://github.com/tskulkarni25/PasswordFeedbackApp/assets/16187077/3d9200c9-54cb-4098-9d1a-b168c20150da">
